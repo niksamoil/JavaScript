@@ -23,7 +23,7 @@ for (let i = 0; i < 2; i++) {
         console.log("Ошибка, вам нужно ввести данные");
         i--;
     }
-};
+}
 
 
 // let i = 0;
@@ -77,6 +77,6 @@ if (appData.moneyPerDay < 100) {
     console.log("Это высокий уровень достатка!");
 } else {
     console.log("Произошла ошибка");
-};
+}
 
 console.log(appData);
