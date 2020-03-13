@@ -100,7 +100,7 @@ detectLevel();
 
 function chooseOptExpenses() {
     for (let i = 1; i < 4; i++) {
-        chooseOptAdded = prompt("Статья необязательных расходов?");
+        let chooseOptAdded = prompt("Статья необязательных расходов?");
 
         appData.optionalExpenses[i] = chooseOptAdded;
     }
