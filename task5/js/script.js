@@ -24,6 +24,8 @@ adv.remove();
 document.body.style.background = 'url(img/apple_true.jpg) center no-repeat';
 
 
+title.textContent = "Мы продаем только подлинную технику Apple"  ;
+
 function timerPrompt() {
     let userAnswer = prompt('Ваше отношение к технике Apple?');
 
