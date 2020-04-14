@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
     });
 
-    let deadline = '2020-04-14';
+    let deadline = '2020-04-15';
 
     function getTimeRemaining(endTime) {
         let t = Date.parse(endTime) - Date.parse(new Date()),
@@ -61,9 +61,9 @@ window.addEventListener('DOMContentLoaded', function(){
         function updateClock() {
             let t = getTimeRemaining(endTime);
 
-            hours.textContent = t.hours;
-            minutes.textContent = t.minutes;
-            seconds.textContent = t.seconds;
+            hours.textContent = addZero(t.hours);
+            minutes.textContent = addZero(t.minutes);
+            seconds.textContent = addZero(t.seconds);
 
             if(t.total <= 0) {
                 clearInterval(timeInterval);
@@ -72,19 +72,54 @@ window.addEventListener('DOMContentLoaded', function(){
                 seconds.textContent = '00';
             }
 
-            if( t.hours < 10 ) {
-                hours.textContent = '0' + t.hours;
-            }
-
-            if( t.minutes < 10 ) {
-                minutes.textContent = '0' + t.minutes;
-            }
-            
-            if ( t.seconds < 10 ) {
-                seconds.textContent = '0' + t.seconds;
+            function addZero(num) {
+                if(num < 9) {
+                    return '0' + num;
+                } else {
+                    return num;
+                }
             }
         }    
     }
 
     setClock('timer', deadline);
+
+
+    //modal window
+
+    let more = document.querySelector('.more'),
+        tabsMore = document.querySelectorAll('.description-btn'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+
+    more.addEventListener('click', function() {
+        overlay.style.display = 'block';
+        this.classList.add('more-splash');
+        document.body.style.overflow = 'hidden';
+    });   
+    
+    
+    close.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        close.classList.remove('more-splash');
+        document.body.style.overflow = '';
+    });
+
+    // tabsMore[0].addEventListener('click', function() {
+    //     overlay.style.display = 'block';
+    //     this.classList.add('more-splash');
+    //     document.body.style.overflow = 'hidden';
+    // });
+
+    // tabsMore.forEach(function(item) {
+       
+    // });
+
+    for (let i = 0; i < tabsMore.length; i++) {
+        tabsMore[i].addEventListener('click', function() {
+                overlay.style.display = 'block';
+                this.classList.add('more-splash');
+                document.body.style.overflow = 'hidden';
+        });
+    }
 });
