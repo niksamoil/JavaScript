@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('DOMContentLoaded', () => {
 
     'use strict';
 
@@ -22,7 +22,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
     }
 
-    infoHeader.addEventListener('click', function(event) {
+    infoHeader.addEventListener('click', (event) => {
         let target = event.target;
         if (target && target.classList.contains('info-header-tab')){
             for (let i = 0; i < tab.length; i++) {
@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
     });
 
-    let deadline = '2020-04-15';
+    let deadline = '2020-04-17';
 
     function getTimeRemaining(endTime) {
         let t = Date.parse(endTime) - Date.parse(new Date()),
@@ -92,14 +92,14 @@ window.addEventListener('DOMContentLoaded', function(){
         overlay = document.querySelector('.overlay'),
         close = document.querySelector('.popup-close');
 
-    more.addEventListener('click', function() {
+    more.addEventListener('click', () => {
         overlay.style.display = 'block';
         this.classList.add('more-splash');
         document.body.style.overflow = 'hidden';
     });   
     
     
-    close.addEventListener('click', function() {
+    close.addEventListener('click', () => {
         overlay.style.display = 'none';
         close.classList.remove('more-splash');
         document.body.style.overflow = '';
@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', function(){
     // });
 
     for (let i = 0; i < tabsMore.length; i++) {
-        tabsMore[i].addEventListener('click', function() {
+        tabsMore[i].addEventListener('click', () => {
                 overlay.style.display = 'block';
                 this.classList.add('more-splash');
                 document.body.style.overflow = 'hidden';
